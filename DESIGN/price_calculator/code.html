@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Price Calculator | Forge3D</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Hanken+Grotesk:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e3e2e0",
+                    "surface-dim": "#dbdad8",
+                    "inverse-primary": "#8cd2db",
+                    "secondary-fixed": "#e2e2e5",
+                    "on-tertiary-fixed-variant": "#41474d",
+                    "surface-container-low": "#f4f3f1",
+                    "surface-container-high": "#e9e8e6",
+                    "tertiary-fixed": "#dde3ea",
+                    "secondary-container": "#e2e2e5",
+                    "inverse-surface": "#2f3130",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#93d9e2",
+                    "secondary": "#5d5e61",
+                    "primary-fixed": "#a7eef7",
+                    "on-tertiary-fixed": "#161c21",
+                    "on-surface": "#1a1c1b",
+                    "background": "#faf9f7",
+                    "on-secondary-fixed-variant": "#454749",
+                    "on-primary-fixed-variant": "#004f56",
+                    "primary": "#00484e",
+                    "tertiary-fixed-dim": "#c1c7ce",
+                    "error": "#ba1a1a",
+                    "tertiary": "#3b4146",
+                    "on-secondary-container": "#636467",
+                    "secondary-fixed-dim": "#c6c6c9",
+                    "primary-container": "#096169",
+                    "surface": "#faf9f7",
+                    "surface-container": "#efeeec",
+                    "on-background": "#1a1c1b",
+                    "surface-tint": "#176870",
+                    "tertiary-container": "#52585e",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#f1f1ef",
+                    "outline": "#6f797a",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#3f484a",
+                    "outline-variant": "#bec8ca",
+                    "on-primary-fixed": "#001f23",
+                    "surface-bright": "#faf9f7",
+                    "on-tertiary-container": "#c8ced5",
+                    "on-secondary-fixed": "#1a1c1e",
+                    "surface-container-highest": "#e3e2e0",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#8cd2db"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container_max_width": "1280px",
+                    "stack_lg": "24px",
+                    "gutter": "24px",
+                    "margin_mobile": "16px",
+                    "base": "8px",
+                    "margin_desktop": "40px",
+                    "stack_sm": "4px",
+                    "stack_md": "12px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-caps": ["JetBrains Mono"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "title-md": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ambient-shadow {
+            box-shadow: 0 10px 30px -10px rgba(0, 72, 78, 0.08);
+        }
+        .inner-shadow {
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-lg">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface-container-low w-full sticky top-0 z-50 border-b border-outline-variant dark:border-outline shadow-sm">
+<div class="flex justify-between items-center h-20 px-margin_desktop max-w-container_max_width mx-auto">
+<div class="flex items-center gap-stack_md">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="precision_manufacturing">precision_manufacturing</span>
+<h1 class="text-title-md font-title-md text-primary dark:text-primary-fixed">Forge3D</h1>
+</div>
+<nav class="hidden md:flex items-center gap-stack_lg font-body-lg text-body-lg">
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary dark:border-primary-fixed pb-1" href="/pricecalculator">Price Calculator</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="/portfolio">Product Portfolio</a>
+</nav>
+<button class="bg-primary text-on-primary px-stack_lg py-stack_md rounded font-medium transition-transform duration-200 active:scale-95">
+                Sign In
+            </button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow px-margin_mobile md:px-margin_desktop max-w-container_max_width mx-auto w-full py-12">
+<div class="max-w-4xl mx-auto">
+<div class="mb-stack_lg">
+<h2 class="font-headline-lg text-headline-lg mb-stack_sm">Precision Price Estimator</h2>
+<p class="text-on-surface-variant max-w-2xl">Calculate project costs with industrial accuracy. Our algorithm accounts for material consumption, machine wear, and expert labor to provide a definitive quote.</p>
+</div>
+<!-- Bento Layout for Calculator -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Input Section -->
+<div class="lg:col-span-7 bg-surface-container-lowest border border-outline-variant rounded-xl p-stack_lg ambient-shadow">
+<div class="flex items-center gap-stack_md mb-stack_lg">
+<span class="material-symbols-outlined text-primary-container" data-icon="settings_input_component">settings_input_component</span>
+<h3 class="text-title-md font-title-md">Print Specifications</h3>
+</div>
+<div class="space-y-stack_lg">
+<!-- Print Time -->
+<div class="grid grid-cols-2 gap-gutter">
+<div class="space-y-stack_sm">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Time (Hours)</label>
+<div class="relative group">
+<input class="w-full bg-surface border border-outline-variant rounded-lg p-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all font-body-lg" id="hours" min="0" placeholder="00" type="number" value="2"/>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 text-outline font-label-caps pointer-events-none">H</div>
+</div>
+</div>
+<div class="space-y-stack_sm">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Time (Minutes)</label>
+<div class="relative group">
+<input class="w-full bg-surface border border-outline-variant rounded-lg p-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all font-body-lg" id="minutes" max="59" min="0" placeholder="00" type="number" value="30"/>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 text-outline font-label-caps pointer-events-none">M</div>
+</div>
+</div>
+</div>
+<!-- Filament Weight -->
+<div class="space-y-stack_sm">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Filament Weight</label>
+<div class="relative group">
+<input class="w-full bg-surface border border-outline-variant rounded-lg p-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all font-body-lg" id="grams" min="0" placeholder="0.00" type="number" value="120"/>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 text-outline font-label-caps pointer-events-none">Grams</div>
+</div>
+</div>
+<!-- 3D Preview Placeholder -->
+<div class="mt-8 relative aspect-video bg-surface rounded-lg overflow-hidden inner-shadow border border-outline-variant flex items-center justify-center">
+<img class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-multiply" data-alt="A sophisticated macro shot of a high-precision 3D printer nozzle extruding matte deep teal filament onto a clean build plate. The background is a clean, bright industrial laboratory with soft neutral lighting and minimal distractions. The aesthetic is professional and technical, emphasizing precision and high-end manufacturing technology with a serene, modern light-mode vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA98t8z83VQ1i_2de7aYJwFnfi7OIYnNGJyDTHvNKGKDp8h6e6Ava0LxOEgAFyoGDWts24KwHPnZAM7JVgosh8j62rpk-scn-XiEcjJfwjRTiOxuGY1DEpOheK8pe7UKKkXEsAnavwU3cWq_FUQNxpGUxgiU0xZE4n3NCCMMJcATK0wdkjs4GKNlWzU-2cAldIoXC8FvcofHrvH_eC-95i1jfI73hV7D4Znb-jcNMUmHZIh_vPSUkreZCHeVu3biUxL3igYlo15EJM"/>
+<div class="relative z-10 flex flex-col items-center text-center p-8">
+<span class="material-symbols-outlined text-primary text-4xl mb-2" data-icon="view_in_ar">view_in_ar</span>
+<p class="font-label-caps text-label-caps text-primary">Spatial Analysis Active</p>
+<p class="text-body-sm text-on-surface-variant mt-2 max-w-[200px]">Real-time preview of printing chamber utilization.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Price Display Section -->
+<div class="lg:col-span-5 flex flex-col gap-gutter">
+<!-- Total Card -->
+<div class="bg-primary text-on-primary rounded-xl p-stack_lg ambient-shadow flex-grow flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-12">
+<div>
+<h3 class="font-label-caps text-label-caps text-primary-fixed opacity-80 uppercase mb-1">Final Quotation</h3>
+<div class="flex items-baseline gap-2">
+<span class="text-body-lg opacity-80">$</span>
+<span class="text-display-lg font-display-lg leading-none" id="total-price">0.00</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-3xl opacity-50" data-icon="receipt_long">receipt_long</span>
+</div>
+<div class="space-y-stack_md mb-8">
+<div class="flex justify-between items-center text-body-sm">
+<span class="opacity-70">Estimated Delivery</span>
+<span class="font-medium">2-3 Business Days</span>
+</div>
+<div class="flex justify-between items-center text-body-sm">
+<span class="opacity-70">Shipping Priority</span>
+<span class="font-medium">Standard Ground</span>
+</div>
+<div class="h-[1px] bg-white opacity-20 w-full my-4"></div>
+<div class="flex items-center gap-2 text-primary-fixed">
+<span class="material-symbols-outlined text-sm" data-icon="verified" data-weight="fill">verified</span>
+<span class="text-body-sm">Precision Guaranteed</span>
+</div>
+</div>
+</div>
+<button class="w-full bg-surface text-primary py-4 rounded-lg font-bold text-body-lg hover:bg-primary-fixed-dim transition-colors flex items-center justify-center gap-2 group">
+                            Proceed to Checkout
+                            <span class="material-symbols-outlined transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Breakdown Card -->
+<div class="bg-surface-container-high border border-outline-variant rounded-xl p-stack_lg">
+<h4 class="font-title-md text-title-md mb-stack_md">Cost Breakdown</h4>
+<div class="space-y-stack_md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-stack_md">
+<span class="material-symbols-outlined text-on-surface-variant text-xl" data-icon="inventory_2">inventory_2</span>
+<span class="text-body-sm">Filament Consumption</span>
+</div>
+<div class="h-1.5 bg-primary rounded-full transition-all duration-700" id="filament-bar" style="width: 45%"></div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-stack_md">
+<span class="material-symbols-outlined text-on-surface-variant text-xl" data-icon="bolt">bolt</span>
+<span class="text-body-sm">Electricity Usage</span>
+</div>
+<div class="h-1.5 bg-primary rounded-full transition-all duration-700" id="electricity-bar" style="width: 15%"></div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-stack_md">
+<span class="material-symbols-outlined text-on-surface-variant text-xl" data-icon="precision_manufacturing">precision_manufacturing</span>
+<span class="text-body-sm">Machine Amortization</span>
+</div>
+<div class="h-1.5 bg-primary rounded-full transition-all duration-700" id="machine-bar" style="width: 20%"></div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-stack_md">
+<span class="material-symbols-outlined text-on-surface-variant text-xl" data-icon="engineering">engineering</span>
+<span class="text-body-sm">Expert Labor</span>
+</div>
+<div class="h-1.5 bg-primary rounded-full transition-all duration-700" id="labor-bar" style="width: 20%"></div>
+</div>
+</div>
+<p class="mt-stack_lg text-label-caps font-label-caps text-on-surface-variant text-center opacity-60">VALUES ARE FACTORED INTO FINAL PRICE</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-dim border-t border-outline-variant dark:border-outline mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center py-stack_lg px-margin_desktop max-w-container_max_width mx-auto">
+<div class="flex items-center gap-2 mb-4 md:mb-0">
+<span class="material-symbols-outlined text-primary" data-icon="layers">layers</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant">© 2024 Forge3D Precision Printing. All rights reserved.</p>
+</div>
+<div class="flex gap-stack_lg">
+<a class="text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed underline transition-opacity opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed underline transition-opacity opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed underline transition-opacity opacity-80 hover:opacity-100" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+<script>
+        const inputs = ['hours', 'minutes', 'grams'];
+        const elements = {};
+        inputs.forEach(id => elements[id] = document.getElementById(id));
+        const priceDisplay = document.getElementById('total-price');
+        
+        const bars = {
+            filament: document.getElementById('filament-bar'),
+            electricity: document.getElementById('electricity-bar'),
+            machine: document.getElementById('machine-bar'),
+            labor: document.getElementById('labor-bar')
+        };
+
+        function calculate() {
+            const H = parseFloat(elements.hours.value) || 0;
+            const M = parseFloat(elements.minutes.value) || 0;
+            const F = parseFloat(elements.grams.value) || 0;
+            const T = H + (M / 60);
+            const L = 650;
+
+            // Logic constants provided
+            const filamentCost = (F / 1000) * 750 * 1.75;
+            const electricityCost = ((1300 / 1000) * T) * 14;
+            const machineCost = ((32000 / (8760 * 3)) * T);
+            const laborCost = (Math.max(T / 3, 1)) * (L / 8);
+
+            const subtotal = filamentCost + electricityCost + machineCost + laborCost;
+            const total = subtotal * 1.5;
+
+            // Update UI
+            priceDisplay.textContent = total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+            // Update Breakdown Bars visually (proportional)
+            if (total > 0) {
+                bars.filament.style.width = `${(filamentCost / subtotal) * 100}%`;
+                bars.electricity.style.width = `${(electricityCost / subtotal) * 100}%`;
+                bars.machine.style.width = `${(machineCost / subtotal) * 100}%`;
+                bars.labor.style.width = `${(laborCost / subtotal) * 100}%`;
+            } else {
+                Object.values(bars).forEach(bar => bar.style.width = '0%');
+            }
+        }
+
+        // Event Listeners
+        inputs.forEach(id => {
+            elements[id].addEventListener('input', calculate);
+        });
+
+        // Initial Calc
+        calculate();
+
+        // Subtle Hover Interaction for Cards
+        document.querySelectorAll('.bg-surface-container-lowest').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-2px)';
+                card.style.transition = 'transform 0.3s ease';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0px)';
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Forge3D | Product Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Hanken+Grotesk:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error-container": "#93000a",
+                      "surface-variant": "#e3e2e0",
+                      "surface-dim": "#dbdad8",
+                      "inverse-primary": "#8cd2db",
+                      "secondary-fixed": "#e2e2e5",
+                      "on-tertiary-fixed-variant": "#41474d",
+                      "surface-container-low": "#f4f3f1",
+                      "surface-container-high": "#e9e8e6",
+                      "tertiary-fixed": "#dde3ea",
+                      "secondary-container": "#e2e2e5",
+                      "inverse-surface": "#2f3130",
+                      "on-primary": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "on-primary-container": "#93d9e2",
+                      "secondary": "#5d5e61",
+                      "primary-fixed": "#a7eef7",
+                      "on-tertiary-fixed": "#161c21",
+                      "on-surface": "#1a1c1b",
+                      "background": "#faf9f7",
+                      "on-secondary-fixed-variant": "#454749",
+                      "on-primary-fixed-variant": "#004f56",
+                      "primary": "#00484e",
+                      "tertiary-fixed-dim": "#c1c7ce",
+                      "error": "#ba1a1a",
+                      "tertiary": "#3b4146",
+                      "on-secondary-container": "#636467",
+                      "secondary-fixed-dim": "#c6c6c9",
+                      "primary-container": "#096169",
+                      "surface": "#faf9f7",
+                      "surface-container": "#efeeec",
+                      "on-background": "#1a1c1b",
+                      "surface-tint": "#176870",
+                      "tertiary-container": "#52585e",
+                      "on-tertiary": "#ffffff",
+                      "inverse-on-surface": "#f1f1ef",
+                      "outline": "#6f797a",
+                      "error-container": "#ffdad6",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface-variant": "#3f484a",
+                      "outline-variant": "#bec8ca",
+                      "on-primary-fixed": "#001f23",
+                      "surface-bright": "#faf9f7",
+                      "on-tertiary-container": "#c8ced5",
+                      "on-secondary-fixed": "#1a1c1e",
+                      "surface-container-highest": "#e3e2e0",
+                      "on-error": "#ffffff",
+                      "primary-fixed-dim": "#8cd2db"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "container_max_width": "1280px",
+                      "stack_lg": "24px",
+                      "gutter": "24px",
+                      "margin_mobile": "16px",
+                      "base": "8px",
+                      "margin_desktop": "40px",
+                      "stack_sm": "4px",
+                      "stack_md": "12px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "label-caps": ["JetBrains Mono"],
+                      "headline-lg": ["Hanken Grotesk"],
+                      "title-md": ["Hanken Grotesk"],
+                      "display-lg": ["Hanken Grotesk"],
+                      "headline-lg-mobile": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .gallery-card {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+        }
+        .gallery-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -8px rgba(0, 72, 78, 0.15);
+        }
+        .lightbox-active {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-lg min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="w-full sticky top-0 z-50 bg-surface border-b border-outline-variant shadow-sm h-20">
+<div class="flex justify-between items-center h-full px-margin_desktop max-w-container_max_width mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-title-md font-title-md text-primary">Forge3D</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-lg" href="#">Price Calculator</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-lg" href="#">Product Portfolio</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-6 py-2 bg-primary text-on-primary font-body-lg rounded-lg transition-transform duration-200 active:scale-95">Sign In</button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow max-w-container_max_width mx-auto w-full px-margin_desktop py-stack_lg">
+<!-- Page Header -->
+<header class="mb-stack_lg">
+<h1 class="font-display-lg text-display-lg text-primary mb-stack_sm">Product Portfolio</h1>
+<p class="text-on-surface-variant font-body-lg max-w-2xl">A curated selection of precision-engineered components and artistic prototypes delivered with industrial-grade additive manufacturing.</p>
+</header>
+<!-- Portfolio Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter" id="portfolio-grid">
+<!-- Cards will be injected here via script -->
+</div>
+</main>
+<!-- Lightbox Overlay -->
+<div class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-surface/80 backdrop-blur-xl p-margin_desktop transition-opacity duration-300 opacity-0" id="lightbox">
+<button class="absolute top-8 right-8 text-primary p-2 hover:bg-primary-container/20 rounded-full transition-colors" id="close-lightbox">
+<span class="material-symbols-outlined text-4xl">close</span>
+</button>
+<div class="max-w-4xl w-full h-full flex items-center justify-center">
+<img alt="Full size preview" class="max-h-full max-w-full object-contain rounded-xl shadow-2xl" id="lightbox-img" src=""/>
+</div>
+</div>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-surface-container-lowest border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center py-stack_lg px-margin_desktop max-w-container_max_width mx-auto gap-stack_md">
+<span class="font-title-md text-title-md text-primary">Forge3D</span>
+<div class="flex gap-6 font-body-sm text-on-surface-variant">
+<a class="hover:text-primary transition-opacity opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-opacity opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-opacity opacity-80 hover:opacity-100" href="#">Contact Support</a>
+</div>
+<p class="font-body-sm text-on-surface-variant opacity-80">© 2024 Forge3D Precision Printing. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Simulated JSON Portfolio Data
+        const portfolioData = [
+            {
+                id: 1,
+                image: "image-product-1.jpg",
+                badge: { text: "Collab with Mapua Council", color: "bg-primary-container text-on-primary-container" },
+                alt: "A high-fidelity 3D printed scale model of a modern urban development area, featuring intricate architectural details and miniature landscaping. The scene is shot in a professional studio setting with soft side-lighting that emphasizes the geometric precision and matte white finish of the material. The aesthetic is clean and industrial, reflecting a high-end engineering portfolio on a minimalist off-white background."
+            },
+            {
+                id: 2,
+                image: "image-product-2.jpg",
+                badge: null,
+                alt: "An ultra-detailed industrial mechanical gear assembly 3D printed with translucent resin. The internal lattice structures are visible through the polished surface, illuminated by a cool-toned teal backlighting that suggests high-tech precision. The image is captured with a shallow depth of field, showcasing the flawless surface quality against a sophisticated neutral gray studio backdrop."
+            },
+            {
+                id: 3,
+                image: "image-product-3.jpg",
+                badge: { text: "Aerospace Grade", color: "bg-tertiary-container text-on-tertiary-container" },
+                alt: "A complex aerospace manifold component printed in dark metallic titanium powder. The surface shows a subtle crystalline texture typical of high-end metal 3D printing. The lighting is dramatic and directional, casting long shadows that define the organic, generative design of the fluid paths. The mood is authoritative and technologically superior, presented in a clean gallery style."
+            },
+            {
+                id: 4,
+                image: "image-product-4.jpg",
+                badge: null,
+                alt: "A collection of ergonomic surgical tool handles 3D printed in medical-grade biocompatible polymer. The handles feature a intricate micro-texture for grip, rendered in a soft clinical white. The composition is clean and orderly, with bright, high-key lighting that communicates safety and precision. The visual style is premium and minimalist, consistent with a high-end medical manufacturing showcase."
+            },
+            {
+                id: 5,
+                image: "image-product-5.jpg",
+                badge: { text: "New Material Lab", color: "bg-secondary-container text-on-secondary-container" },
+                alt: "An artistic lattice structure 3D printed in a vibrant deep teal flexible elastomer. The piece is twisting in a complex topological loop, caught in a moment of structural elegance. Soft, diffused lighting creates gentle gradients across the matte surface, emphasizing the flexibility and durability of the material. The aesthetic is modern and sculptural, set against a pristine studio environment."
+            },
+            {
+                id: 6,
+                image: "image-product-6.jpg",
+                badge: null,
+                alt: "A prototype of a high-performance drone frame 3D printed in carbon-fiber reinforced nylon. The frame has a sleek, aerodynamic profile with a distinctive matte charcoal finish. The lighting highlights the structural ribs and mounting points, conveying strength and lightweight efficiency. The image is crisp and professional, fitting into a high-end industrial product portfolio."
+            }
+        ];
+
+        const grid = document.getElementById('portfolio-grid');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeLightbox = document.getElementById('close-lightbox');
+
+        // Render Cards
+        portfolioData.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'gallery-card relative aspect-square bg-white border border-outline-variant rounded-lg overflow-hidden cursor-pointer group shadow-sm';
+            
+            let badgeHtml = '';
+            if (item.badge) {
+                badgeHtml = `
+                    <div class="absolute top-4 left-4 z-10 px-3 py-1 rounded-full text-[10px] font-label-caps uppercase tracking-wider ${item.badge.color} shadow-sm">
+                        ${item.badge.text}
+                    </div>
+                `;
+            }
+
+            card.innerHTML = `
+                ${badgeHtml}
+                <img src="${item.image}" 
+                     data-alt="${item.alt}" 
+                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                     loading="lazy">
+                <div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary text-4xl opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all">fullscreen</span>
+                </div>
+            `;
+
+            card.addEventListener('click', () => {
+                openLightbox(item.image);
+            });
+
+            grid.appendChild(card);
+        });
+
+        // Lightbox Functions
+        function openLightbox(src) {
+            lightboxImg.src = src;
+            lightbox.classList.remove('hidden');
+            document.body.classList.add('lightbox-active');
+            setTimeout(() => {
+                lightbox.classList.remove('opacity-0');
+            }, 10);
+        }
+
+        function hideLightbox() {
+            lightbox.classList.add('opacity-0');
+            document.body.classList.remove('lightbox-active');
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+                lightboxImg.src = '';
+            }, 300);
+        }
+
+        closeLightbox.addEventListener('click', hideLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.closest('#close-lightbox')) {
+                hideLightbox();
+            }
+        });
+
+        // Keyboard support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') hideLightbox();
+        });
+    </script>
+</body></html>
