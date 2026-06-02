@@ -1,0 +1,115 @@
+[
+  {
+    "id": "pla-red",
+    "material": "PLA",
+    "name": "Red",
+    "hex": "#E11D48",
+    "finish": "Glossy",
+    "description": "Vibrant, classic red with a smooth finish. Perfect for eye-catching models."
+  },
+  {
+    "id": "pla-sky-blue",
+    "material": "PLA",
+    "name": "Sky Blue",
+    "hex": "#38BDF8",
+    "finish": "Satin",
+    "description": "Bright and clean light blue, ideal for decorative and sky-themed projects."
+  },
+  {
+    "id": "pla-gold-silk",
+    "material": "PLA",
+    "name": "Gold (Silk)",
+    "hex": "#D4AF37",
+    "isSilk": true,
+    "finish": "Silk / Metallic",
+    "description": "Stunning reflective silk gold with a premium, shimmering high-gloss finish."
+  },
+  {
+    "id": "pla-black",
+    "material": "PLA",
+    "name": "Black",
+    "hex": "#1E1E1E",
+    "finish": "Satin-Matte",
+    "description": "Deep black with a subtle sheen, offering excellent line concealment."
+  },
+  {
+    "id": "pla-white",
+    "material": "PLA",
+    "name": "White",
+    "hex": "#F8FAFC",
+    "finish": "Satin",
+    "description": "Pure clean white. Highly versatile, great for architectural models and prototyping."
+  },
+  {
+    "id": "pla-orange",
+    "material": "PLA",
+    "name": "Orange",
+    "hex": "#EA580C",
+    "finish": "Glossy",
+    "description": "Vibrant safety orange. Highly visible, perfect for functional markers and mechanical prototypes."
+  },
+  {
+    "id": "pla-green",
+    "material": "PLA",
+    "name": "Green",
+    "hex": "#16A34A",
+    "finish": "Glossy",
+    "description": "Rich grass green color, excellent for organic shapes and natural models."
+  },
+  {
+    "id": "pla-light-brown",
+    "material": "PLA",
+    "name": "Light Brown",
+    "hex": "#C29B78",
+    "finish": "Matte",
+    "description": "Warm, earthy tan tone. Perfect for sand, wood-like aesthetics, or terrain details."
+  },
+  {
+    "id": "pla-dark-green",
+    "material": "PLA",
+    "name": "Dark Green",
+    "hex": "#14532D",
+    "finish": "Satin",
+    "description": "Deep forest green, providing a sophisticated, professional finish."
+  },
+  {
+    "id": "pla-pink",
+    "material": "PLA",
+    "name": "Pink",
+    "hex": "#F472B6",
+    "finish": "Glossy",
+    "description": "Playful and bright bubblegum pink, great for creative and custom designs."
+  },
+  {
+    "id": "petg-gray",
+    "material": "PETG",
+    "name": "Gray",
+    "hex": "#6B7280",
+    "finish": "Glossy",
+    "description": "Industrial gray, excellent for functional mechanical parts and enclosures."
+  },
+  {
+    "id": "petg-black",
+    "material": "PETG",
+    "name": "Black",
+    "hex": "#111827",
+    "finish": "Glossy / Semi-Glossy",
+    "description": "Durable glossy black. Excellent chemical resistance and structural integrity."
+  },
+  {
+    "id": "petg-purple",
+    "material": "PETG",
+    "name": "Purple",
+    "hex": "#7C3AED",
+    "finish": "Glossy",
+    "description": "Rich purple tone with high transparency-depth. Tough and chemically resistant."
+  },
+  {
+    "id": "abs-black",
+    "material": "ABS",
+    "name": "Black",
+    "hex": "#030712",
+    "finish": "Matte",
+    "description": "Ultra-tough matte black. High temperature resistance, paintable, and acetone-smoothable."
+  }
+]

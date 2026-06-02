@@ -44,6 +44,15 @@ export default function Navbar() {
           >
             Product Portfolio
           </Link>
+          <Link
+            href="/colors"
+            className={`pb-1 transition-colors ${isActive("/colors")
+              ? "font-bold text-primary border-b-2 border-primary"
+              : "text-on-surface-variant hover:text-primary"
+              }`}
+          >
+            Available Colors
+          </Link>
         </nav>
       </div>
     </header>
