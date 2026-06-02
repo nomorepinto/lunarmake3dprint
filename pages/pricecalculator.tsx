@@ -192,9 +192,6 @@ export default function PriceCalculator() {
                         </span>
                         <span>Filament Cost</span>
                       </div>
-                      <span className="font-mono text-[10px] text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">
-                        (Weight / 1000) * ₱750 * 1.75
-                      </span>
                     </div>
                     <div className="h-2 bg-surface-container rounded-full overflow-hidden">
                       <div
@@ -213,9 +210,6 @@ export default function PriceCalculator() {
                         </span>
                         <span>Electricity Cost</span>
                       </div>
-                      <span className="font-mono text-[10px] text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">
-                        ((1300 / 1000) * Hours) * ₱14
-                      </span>
                     </div>
                     <div className="h-2 bg-surface-container rounded-full overflow-hidden">
                       <div
@@ -234,9 +228,6 @@ export default function PriceCalculator() {
                         </span>
                         <span>Machine Wear</span>
                       </div>
-                      <span className="font-mono text-[10px] text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">
-                        (32000 / 26280) * Hours
-                      </span>
                     </div>
                     <div className="h-2 bg-surface-container rounded-full overflow-hidden">
                       <div
@@ -255,9 +246,6 @@ export default function PriceCalculator() {
                         </span>
                         <span>Labor</span>
                       </div>
-                      <span className="font-mono text-[10px] text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">
-                        Max(Hours / 3, 1) * (₱650 / 8)
-                      </span>
                     </div>
                     <div className="h-2 bg-surface-container rounded-full overflow-hidden">
                       <div
@@ -266,12 +254,6 @@ export default function PriceCalculator() {
                       ></div>
                     </div>
                   </div>
-                </div>
-
-                <div className="h-[1px] bg-outline-variant w-full my-6"></div>
-                <div className="flex items-center justify-center gap-2 font-mono text-[11px] text-on-surface-variant uppercase tracking-wider">
-                  <span className="text-primary font-bold">Multiplier Factor</span>
-                  <span>1.5x Overhead applied to total</span>
                 </div>
               </div>
             </div>
